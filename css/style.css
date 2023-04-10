@@ -1,0 +1,47 @@
+*{
+    text-decoration: none;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid green;
+}
+
+.logo img {
+    width: 100px;
+}
+
+
+.navbar button {
+    padding: 5px 30px;
+    background: green;
+    color: white;
+}
+
+
+.heading{
+    align-items: center;
+    padding: 200px;
+}
+
+
+.Form{
+    padding: 50px 450px;
+}
+
+
+footer{
+    border-top: 1px solid green;
+    padding: 30px 50px;
+}
+
+.footerP{
+    border-top: 1px solid green;
+    padding: 20px;
+    margin: 0;
+}
