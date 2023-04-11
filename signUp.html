@@ -13,15 +13,39 @@
             const firstName = document.getElementById('firstname').value;
             const lastName = document.getElementById('lastname').value;
             const phoneNumber = document.getElementById('phone').value;
-            const emailId = document.getElementById('email').value;
+            let emailId = document.getElementById('email').value;
+            var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
             const userName = document.getElementById('username').value;
             const password = document.getElementById('password').value;
+            const DOB = document.getElementById('dob').value;
+            const address = document.getElementById('address').value;
             const city = document.getElementById('city').value;
+            const genderValue = document.querySelector('input[name="gender"]:checked');   
 
-            if (firstName.length >= 3) {
-                return document.getElementById('checkStatus').innerHTML = 'success';
+
+            if (firstName.length <= 3) {
+                return document.getElementById('firstNameStatus').innerHTML = 'invalid';
+            }else if (!emailId.match(validRegex)) {
+                return document.getElementById('emailStatus').innerHTML = 'invalid email';
+            } 
+            else if (lastName.length <= 3) {
+                return document.getElementById('lastNameStatus').innerHTML = 'invalid';
+            } else if (phoneNumber.length !== 10) {
+                return document.getElementById('mobileStatus').innerHTML = 'invalid';
+            } else if (userName.length <= 10) {
+                return document.getElementById('userNameStatus').innerHTML = 'invalid';
+            }else if (password.length <= 0) {
+                return document.getElementById('passwordStatus').innerHTML = 'invalid';
+            }else if (DOB.length <= 0) {
+                return document.getElementById('DOBStatus').innerHTML = 'invalid';
+            }else if (address.length <= 0) {
+                return document.getElementById('addressStatus').innerHTML = 'invalid';
+            }else if (city.length <= 0) {
+                return document.getElementById('cityStatus').innerHTML = 'invalid';
+            }else if(genderValue = null) { 
+                return document.getElementById('genderStatus').innerHTML = 'invalid';  
             } else {
-                return document.getElementById('checkStatus').innerHTML = 'invalid';
+                return document.getElementById('checkStatus').innerHTML = 'success';
             }
         }
     </script>
@@ -39,44 +63,52 @@
     <div>
         <div class="Form">
             <form >
-                <div class="mb-3">
+                  <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">First&nbsp;Name</label>
                     <input  type="text" required class="form-control" id="firstname" aria-describedby="emailHelp">
-                    <label id="checkStatus" class="form-label"></label>
+                    <label id="firstNameStatus" class="form-label"></label>
                   </div>
+
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                    <input type="text"  minlength="3" required class="form-control" id="lastname" aria-describedby="emailHelp">
+                    <input type="text" required class="form-control" id="lastname" aria-describedby="emailHelp">
+                    <label id="lastNameStatus" class="form-label"></label>
                   </div>
 
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Contact No.</label>
                     <input type="number" class="form-control" id="phone" aria-describedby="emailHelp">
+                    <label id="mobileStatus" class="form-label"></label>
                   </div>
 
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email-Id</label>
                     <input type="email" required class="form-control" id="email" aria-describedby="emailHelp">
+                    <label id="emailStatus" class="form-label"></label>
                   </div>
 
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Username</label>
                     <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
+                    <label id="userNameStatus" class="form-label"></label>
                   </div>
   
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
                   <input type="password" class="form-control" id="password">
+                  <label id="passwordStatus" class="form-label"></label>
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">DOB</label>
                     <input type="date" class="form-control" id="dob">
+                    <label id="DOBStatus" class="form-label"></label>
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Address</label>
                     <textarea class="form-control" id="address" aria-label="With textarea"></textarea>
+                    <label id="addressStatus" class="form-label"></label>
                 </div>
 
                 <div class="mb-3">
@@ -86,28 +118,21 @@
                         <option value="python">Surat</option>
                         <option value="c#">Rajkot</option>
                     </select>
+                    <label id="cityStatus" class="form-label"></label>
                 </div>
 
                 <label class="form-check-label mb-2" for="exampleCheck1">Gender</label>
                 <div class="mb-3">
-
-                    <div>
-                        <input type="radio" name="gender" value="male" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Male</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="gender" value="female" class="form-check-input" id="exampleCheck">
-                        <label class="form-check-label" for="exampleCheck1">Female</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="gender" value="other" class="form-check-input" id="exampleCheck">
-                        <label class="form-check-label" for="exampleCheck1">Other</label>
-                    </div>
+                    <input type="radio" name="gender" id="male" value="Male"> Male <br>   
+                    <input type="radio" name="gender" id="female" value="Female"> Female <br>   
+                    <input type="radio" name="gender" id="other" value="Other"> Other 
+                    <label id="genderStatus" class="form-label"></label>
                 </div>
 
 
 
 
+                <label id="checkStatus" class="form-label"></label>
                 <button onclick="validation()" type="button" class="btn btn-success w-100">Sign Up</button>
               </form>
         </div>
