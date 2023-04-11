@@ -8,6 +8,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
     <title>SignUp</title>
+    <script>
+        function validation(){
+            const firstName = document.getElementById('firstname').value;
+            const lastName = document.getElementById('lastname').value;
+            const phoneNumber = document.getElementById('phone').value;
+            const emailId = document.getElementById('email').value;
+            const userName = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const city = document.getElementById('city').value;
+
+            if (firstName.length >= 3) {
+                return document.getElementById('checkStatus').innerHTML = 'success';
+            } else {
+                return document.getElementById('checkStatus').innerHTML = 'invalid';
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -21,49 +38,50 @@
 
     <div>
         <div class="Form">
-            <form>
+            <form >
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">First&nbsp;Name</label>
-                    <input type="text" minlength="3" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input  type="text" required class="form-control" id="firstname" aria-describedby="emailHelp">
+                    <label id="checkStatus" class="form-label"></label>
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                    <input type="text"  minlength="3" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text"  minlength="3" required class="form-control" id="lastname" aria-describedby="emailHelp">
                   </div>
 
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Contact No.</label>
-                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="number" class="form-control" id="phone" aria-describedby="emailHelp">
                   </div>
 
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email-Id</label>
-                    <input type="email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" required class="form-control" id="email" aria-describedby="emailHelp">
                   </div>
 
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
                   </div>
   
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                  <input type="password" class="form-control" id="password">
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">DOB</label>
-                    <input type="date" class="form-control" id="exampleInputPassword1">
+                    <input type="date" class="form-control" id="dob">
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Address</label>
-                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                    <textarea class="form-control" id="address" aria-label="With textarea"></textarea>
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">City</label>
-                    <select type="" class="form-control" id="exampleInputPassword1">
+                    <select type="" class="form-control" id="city">
                         <option value="golang">Ahmedabad</option>
                         <option value="python">Surat</option>
                         <option value="c#">Rajkot</option>
@@ -90,7 +108,7 @@
 
 
 
-                <button type="submit" class="btn btn-success w-100">Sign Up</button>
+                <button onclick="validation()" type="button" class="btn btn-success w-100">Sign Up</button>
               </form>
         </div>
     </div>
