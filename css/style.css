@@ -31,7 +31,7 @@
 
 
 .Form{
-    padding: 50px 450px;
+    padding: 50px 50px;
 }
 
 
@@ -44,4 +44,25 @@ footer{
     border-top: 1px solid green;
     padding: 20px;
     margin: 0;
+}
+
+
+.lableStatus{
+    color: red;
+    font-size: small;
+}
+
+input, select, textarea, button{
+    border-color: green !important;
+    border-radius: 0 !important;
+}
+
+.checkStatus{
+    color: green;
+    font-size: 25px;
+}
+
+
+.containerBox{
+    width: 400px;
 }
